@@ -35,16 +35,13 @@
             padding: 16px 8%;
             position: sticky;
             top: 0; z-index: 100;
-            background: rgba(253,248,245,0.85);
+            background: rgba(255, 255, 255, 0.01);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border-bottom: 1px solid transparent;
-            transition: all 0.4s ease;
+            transition: border-color 0.3s;
         }
-        header.scrolled { 
-            background: rgba(255,255,255,0.01);
-            backdrop-filter: blur(10px);
-            border-color: rgba(230,87,143,0.15);
-        }
+        header.scrolled { border-color: rgba(230,87,143,0.15); }
 
         .logo {
             font-family: 'Fraunces', serif;
