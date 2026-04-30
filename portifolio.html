@@ -272,10 +272,10 @@
         /* ── SOBRE ── */
         #sobre {
             padding: 100px 8%;
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 60px;
-            align-items: start;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
         }
         .sobre-label {
             font-family: 'Fraunces', serif;
@@ -285,6 +285,12 @@
             color: var(--rose);
             letter-spacing: 1px;
             padding-top: 6px;
+            margin-bottom: 16px;
+        }
+        .sobre-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .sobre-content h2 {
             font-family: 'Fraunces', serif;
@@ -295,14 +301,14 @@
             letter-spacing: -0.5px;
             transition: all 0.3s ease;
         }
-        .sobre-content p {
+.sobre-content p {
             font-size: 16px;
             color: var(--ink-soft);
             line-height: 1.85;
             font-weight: 300;
             margin-bottom: 16px;
-            max-width: 560px;
-            transition: all 0.3s ease;
+            max-width: 700px;
+            text-align: center;
         }
         .sobre-content p:hover, .sobre-content h2:hover {
             transform: scale(1.01);
