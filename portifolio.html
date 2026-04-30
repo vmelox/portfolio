@@ -242,6 +242,11 @@
             color: var(--rose-deep);
             user-select: none;
             opacity: 0.7;
+            animation: pulseAV 3s ease-in-out infinite;
+        }
+        @keyframes pulseAV {
+            0%, 100% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.95); }
         }
 
         /* tags flutuantes ao redor do avatar */
