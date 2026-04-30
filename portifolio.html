@@ -51,7 +51,10 @@
             z-index: 100;
             background: transparent;
             border-bottom: 1px solid transparent;
-            transition: border-color 0.3s;
+            transition: transform 0.3s ease, border-color 0.3s;
+        }
+        header.hidden {
+            transform: translateY(-100%);
         }
 
         .logo {
@@ -758,6 +761,19 @@
             el.addEventListener('mouseleave', () => {
                 cursor.style.transform = 'translate(-50%,-50%) scale(1)';
             });
+        });
+
+        // header scroll hide
+        let lastScroll = 0;
+        const headerEl = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.scrollY;
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                headerEl.classList.add('hidden');
+            } else {
+                headerEl.classList.remove('hidden');
+            }
+            lastScroll = currentScroll;
         });
 
         // nav active
