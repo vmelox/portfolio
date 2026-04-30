@@ -46,13 +46,14 @@
             justify-content: space-between;
             align-items: center;
             padding: 28px 8%;
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 100;
-            background: transparent;
+            position: sticky;
+            top: 0; z-index: 100;
+            background: rgba(253,248,245,0.85);
+            backdrop-filter: blur(12px);
             border-bottom: 1px solid transparent;
             transition: border-color 0.3s;
         }
+        header.scrolled { border-color: rgba(230,87,143,0.15); }
 
         .logo {
             font-family: 'Fraunces', serif;
@@ -758,6 +759,12 @@
             el.addEventListener('mouseleave', () => {
                 cursor.style.transform = 'translate(-50%,-50%) scale(1)';
             });
+        });
+
+        // header scroll
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 20);
         });
 
         // nav active
