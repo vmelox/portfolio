@@ -29,26 +29,27 @@
 
         /* ── CURSOR CUSTOM ── */
         body { cursor: none; }
-        .cursor {
-            width: 10px; height: 10px;
+        .cursor-dot {
+            width: 12px; height: 12px;
             background: var(--rose-deep);
             border-radius: 50%;
             position: fixed; top: 0; left: 0;
             pointer-events: none; z-index: 9999;
-            transition: transform 0.15s ease, background 0.2s;
             transform: translate(-50%, -50%);
         }
-        .cursor-ring {
-            width: 34px; height: 34px;
-            border: 1.5px solid var(--rose-deep);
+        .cursor-trail {
+            position: fixed;
             border-radius: 50%;
-            position: fixed; top: 0; left: 0;
-            pointer-events: none; z-index: 9998;
-            transition: transform 0.35s ease, width 0.3s, height 0.3s, opacity 0.3s;
-            transform: translate(-50%, -50%);
-            opacity: 0.5;
+            pointer-events: none;
+            z-index: 9998;
+            background: var(--rose-deep);
         }
-        a:hover ~ .cursor, button:hover ~ .cursor { transform: translate(-50%,-50%) scale(2.5); }
+        .trail-1 { width: 10px; height: 10px; opacity: 0.8; }
+        .trail-2 { width: 18px; height: 18px; opacity: 0.5; }
+        .trail-3 { width: 26px; height: 26px; opacity: 0.3; }
+        .trail-4 { width: 34px; height: 34px; opacity: 0.15; }
+        .trail-5 { width: 42px; height: 42px; opacity: 0.05; }
+        a:hover ~ .cursor-dot, button:hover ~ .cursor-dot { transform: translate(-50%,-50%) scale(1.5); }
 
         /* ── HEADER ── */
         header {
@@ -579,8 +580,12 @@
 </head>
 <body>
 
-    <div class="cursor" id="cursor"></div>
-    <div class="cursor-ring" id="ring"></div>
+    <div class="cursor-trail trail-5" id="trail5"></div>
+    <div class="cursor-trail trail-4" id="trail4"></div>
+    <div class="cursor-trail trail-3" id="trail3"></div>
+    <div class="cursor-trail trail-2" id="trail2"></div>
+    <div class="cursor-trail trail-1" id="trail1"></div>
+    <div class="cursor-dot" id="cursor"></div>
 
     <!-- HEADER -->
     <header id="header">
@@ -741,27 +746,61 @@
     </footer>
 
     <script>
-        // cursor
         const cursor = document.getElementById('cursor');
-        const ring = document.getElementById('ring');
+        const trail1 = document.getElementById('trail1');
+        const trail2 = document.getElementById('trail2');
+        const trail3 = document.getElementById('trail3');
+        const trail4 = document.getElementById('trail4');
+        const trail5 = document.getElementById('trail5');
+
+        let mouseX = 0, mouseY = 0;
+        let trailX1 = 0, trailY1 = 0;
+        let trailX2 = 0, trailY2 = 0;
+        let trailX3 = 0, trailY3 = 0;
+        let trailX4 = 0, trailY4 = 0;
+        let trailX5 = 0, trailY5 = 0;
+
         document.addEventListener('mousemove', e => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-            setTimeout(() => {
-                ring.style.left = e.clientX + 'px';
-                ring.style.top = e.clientY + 'px';
-            }, 80);
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            cursor.style.left = mouseX + 'px';
+            cursor.style.top = mouseY + 'px';
         });
+
+        function animateTrail() {
+            trailX1 += (mouseX - trailX1) * 0.3;
+            trailY1 += (mouseY - trailY1) * 0.3;
+            trailX2 += (mouseX - trailX2) * 0.22;
+            trailY2 += (mouseY - trailY2) * 0.22;
+            trailX3 += (mouseX - trailX3) * 0.16;
+            trailY3 += (mouseY - trailY3) * 0.16;
+            trailX4 += (mouseX - trailX4) * 0.10;
+            trailY4 += (mouseY - trailY4) * 0.10;
+            trailX5 += (mouseX - trailX5) * 0.05;
+            trailY5 += (mouseY - trailY5) * 0.05;
+
+            trail1.style.left = trailX1 + 'px';
+            trail1.style.top = trailY1 + 'px';
+            trail2.style.left = trailX2 + 'px';
+            trail2.style.top = trailY2 + 'px';
+            trail3.style.left = trailX3 + 'px';
+            trail3.style.top = trailY3 + 'px';
+            trail4.style.left = trailX4 + 'px';
+            trail4.style.top = trailY4 + 'px';
+            trail5.style.left = trailX5 + 'px';
+            trail5.style.top = trailY5 + 'px';
+
+            requestAnimationFrame(animateTrail);
+        }
+
+        animateTrail();
+
         document.querySelectorAll('a, button').forEach(el => {
             el.addEventListener('mouseenter', () => {
-                cursor.style.transform = 'translate(-50%,-50%) scale(2.5)';
-                ring.style.width = '50px'; ring.style.height = '50px';
-                ring.style.opacity = '0.3';
+                cursor.style.transform = 'translate(-50%,-50%) scale(1.5)';
             });
             el.addEventListener('mouseleave', () => {
                 cursor.style.transform = 'translate(-50%,-50%) scale(1)';
-                ring.style.width = '34px'; ring.style.height = '34px';
-                ring.style.opacity = '0.5';
             });
         });
 
