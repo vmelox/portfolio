@@ -792,7 +792,7 @@
         }, { threshold: 0.1 });
         revealEls.forEach(el => {
             el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
+            el.style.transform = 'translateY(20px) scale(1)';
             el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
             revealObs.observe(el);
         });
