@@ -70,6 +70,20 @@
         .logo em { color: var(--rose); font-style: italic; }
 
         nav ul { display: flex; list-style: none; gap: 8px; }
+        nav li {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+        nav li:nth-child(1) { transition-delay: 0ms; }
+        nav li:nth-child(2) { transition-delay: 80ms; }
+        nav li:nth-child(3) { transition-delay: 160ms; }
+        nav li:nth-child(4) { transition-delay: 240ms; }
+        nav li:nth-child(5) { transition-delay: 320ms; }
+        nav li.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
         nav a {
             text-decoration: none;
             color: var(--ink-soft);
@@ -783,7 +797,19 @@
         }, { threshold: 0.4 });
         sections.forEach(s => observer.observe(s));
 
-// animate on scroll - skills cascade with 60ms delay
+// nav scroll animation
+        const navItems = document.querySelectorAll('nav li');
+        const navObs = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navItems.forEach(item => item.classList.add('visible'));
+                    navObs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        navObs.observe(document.querySelector('nav'));
+
+        // animate on scroll - skills cascade with 60ms delay
         const revealEls = document.querySelectorAll('.tech-item, .project-card, .contact-link, .sobre-content');
         const revealObs = new IntersectionObserver(entries => {
             entries.forEach((entry, i) => {
