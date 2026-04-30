@@ -35,18 +35,8 @@
             border-radius: 50%;
             position: fixed; top: 0; left: 0;
             pointer-events: none; z-index: 9999;
-            transition: transform 0.15s ease, background 0.2s;
+            transition: transform 0.15s ease;
             transform: translate(-50%, -50%);
-        }
-        .cursor-ring {
-            width: 34px; height: 34px;
-            border: 1.5px solid var(--rose-deep);
-            border-radius: 50%;
-            position: fixed; top: 0; left: 0;
-            pointer-events: none; z-index: 9998;
-            transition: transform 0.35s ease, width 0.3s, height 0.3s, opacity 0.3s;
-            transform: translate(-50%, -50%);
-            opacity: 0.5;
         }
         a:hover ~ .cursor, button:hover ~ .cursor { transform: translate(-50%,-50%) scale(2.5); }
 
@@ -580,7 +570,6 @@
 <body>
 
     <div class="cursor" id="cursor"></div>
-    <div class="cursor-ring" id="ring"></div>
 
     <!-- HEADER -->
     <header id="header">
@@ -742,25 +731,16 @@
 
     <script>
         const cursor = document.getElementById('cursor');
-        const ring = document.getElementById('ring');
         document.addEventListener('mousemove', e => {
             cursor.style.left = e.clientX + 'px';
             cursor.style.top = e.clientY + 'px';
-            setTimeout(() => {
-                ring.style.left = e.clientX + 'px';
-                ring.style.top = e.clientY + 'px';
-            }, 80);
         });
         document.querySelectorAll('a, button').forEach(el => {
             el.addEventListener('mouseenter', () => {
                 cursor.style.transform = 'translate(-50%,-50%) scale(2.5)';
-                ring.style.width = '50px'; ring.style.height = '50px';
-                ring.style.opacity = '0.3';
             });
             el.addEventListener('mouseleave', () => {
                 cursor.style.transform = 'translate(-50%,-50%) scale(1)';
-                ring.style.width = '34px'; ring.style.height = '34px';
-                ring.style.opacity = '0.5';
             });
         });
 
