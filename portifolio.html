@@ -1,4 +1,560 @@
-<nav>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ana Vitória — Desenvolvedora Front-End</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,400;1,9..144,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rose: #E6578F;
+            --rose-deep: #c2185b;
+            --rose-pale: #FCE4EC;
+            --rose-mid: #f8bbd0;
+            --ink: #1a1018;
+            --ink-soft: #4a3f47;
+            --cream: #fdf8f5;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+        body {
+            background: var(--cream);
+            font-family: 'DM Sans', sans-serif;
+            color: var(--ink);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ── HEADER ── */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 8%;
+            position: sticky;
+            top: 0; z-index: 100;
+            background: rgba(255, 255, 255, 0.01);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s;
+        }
+        header.scrolled { border-color: rgba(230,87,143,0.15); }
+
+        .logo {
+            font-family: 'Fraunces', serif;
+            font-size: 22px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            color: var(--ink);
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        .logo:hover {
+            transform: scale(1.1);
+            text-shadow: 0 0 20px rgba(230, 87, 143, 0.5);
+        }
+        .logo em { color: var(--rose); font-style: italic; }
+
+        nav ul { display: flex; list-style: none; gap: 8px; }
+        nav a {
+            text-decoration: none;
+            color: var(--ink-soft);
+            font-size: 13px;
+            font-weight: 500;
+            padding: 7px 16px;
+            border-radius: 99px;
+            border: 1px solid transparent;
+            transition: all 0.25s;
+        }
+        nav a:hover, nav a.active {
+            color: var(--rose-deep);
+            border-color: var(--rose-mid);
+            background: rgba(230,87,143,0.06);
+        }
+
+        /* ── HERO ── */
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            padding: 0 8%;
+            position: relative;
+            overflow: hidden;
+            margin-top: -100px;
+            padding-top: 100px;
+        }
+
+        .hero-bg {
+            position: absolute; inset: 0;
+            background-image: url('C:/Users/Anavi/Downloads/download.jfif');
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
+            animation: bgDrift 2s ease-out forwards;
+        }
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(253,248,245,0.45);
+        }
+        @keyframes bgDrift {
+            0% { transform: scale(1.1); filter: brightness(0.8); }
+            100% { transform: scale(1); filter: brightness(1); }
+        }
+
+        .hero-left {
+            position: relative; z-index: 1;
+            opacity: 0; transform: translateY(30px);
+            animation: fadeUp 0.8s ease 2s forwards;
+        }
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--rose-deep);
+            margin-bottom: 24px;
+        }
+        .eyebrow::before {
+            content: '';
+            display: block; width: 24px; height: 1.5px;
+            background: var(--rose-deep);
+        }
+
+        h1 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(44px, 6vw, 72px);
+            line-height: 1.05;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+        h1 em {
+            color: var(--rose-deep);
+            font-style: italic;
+        }
+
+        .hero-desc {
+            font-size: 17px;
+            color: var(--ink-soft);
+            max-width: 440px;
+            margin-bottom: 40px;
+            font-weight: 300;
+            line-height: 1.75;
+        }
+
+        .cta-group { display: flex; gap: 14px; flex-wrap: wrap; }
+
+        .btn {
+            padding: 13px 28px;
+            border-radius: 99px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.25s;
+            display: inline-block;
+        }
+        .btn-fill {
+            background: var(--rose-deep);
+            color: var(--white);
+            border: 1.5px solid var(--rose-deep);
+        }
+        .btn-fill:hover {
+            background: var(--rose);
+            border-color: var(--rose);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(194,24,91,0.3);
+        }
+        .btn-outline {
+            background: var(--rose-deep);
+            color: var(--white);
+            border: 1.5px solid var(--rose-deep);
+        }
+        .btn-outline:hover {
+            background: var(--rose);
+            border-color: var(--rose);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(194,24,91,0.3);
+        }
+
+        .hero-right {
+            position: relative; z-index: 1;
+            display: flex; justify-content: center; align-items: center;
+            opacity: 0; transform: scale(0.9);
+            animation: popIn 0.8s ease 0.5s forwards;
+        }
+        @keyframes popIn {
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .avatar-wrap {
+            position: relative;
+            width: 340px; height: 340px;
+        }
+        .avatar-circle {
+            width: 100%; height: 100%;
+            border-radius: 60% 40% 55% 45% / 50% 55% 45% 50%;
+            background: url('C:/Users/Anavi/.claude/projects/cyber.png');
+            background-size: cover;
+            background-position: center;
+            animation: morphBlob 8s ease-in-out infinite alternate, rotateAvatar 12s linear infinite;
+            position: relative; overflow: hidden;
+        }
+        @keyframes rotateAvatar {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes morphBlob {
+            0% { border-radius: 60% 40% 55% 45% / 50% 55% 45% 50%; }
+            33% { border-radius: 40% 60% 45% 55% / 55% 45% 50% 50%; }
+            66% { border-radius: 50% 50% 60% 40% / 45% 55% 45% 55%; }
+            100% { border-radius: 55% 45% 40% 60% / 50% 50% 55% 45%; }
+        }
+        .avatar-inner {
+            font-family: 'Fraunces', serif;
+            font-size: 90px;
+            font-style: italic;
+            color: var(--rose-deep);
+            user-select: none;
+            opacity: 0.7;
+            animation: pulseAV 3s ease-in-out infinite;
+        }
+        @keyframes pulseAV {
+            0%, 100% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.95); }
+        }
+
+        .float-tag {
+            position: absolute;
+            background: var(--white);
+            border: 1px solid var(--rose-mid);
+            border-radius: 12px;
+            padding: 8px 14px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--ink-soft);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+            white-space: nowrap;
+        }
+        .tag-1 { top: 10px; right: -20px; animation: float1 4s ease-in-out infinite; }
+        .tag-2 { bottom: 40px; left: -30px; animation: float2 5s ease-in-out infinite; }
+        .tag-3 { top: 50%; right: -40px; transform: translateY(-50%); animation: float1 6s ease-in-out infinite 1s; }
+        @keyframes float1 {
+            0%,100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        @keyframes float2 {
+            0%,100% { transform: translateY(0); }
+            50% { transform: translateY(8px); }
+        }
+        .tag-3 { animation: float3 6s ease-in-out infinite 1s; }
+        @keyframes float3 {
+            0%,100% { transform: translateY(-50%); }
+            50% { transform: translateY(calc(-50% - 8px)); }
+        }
+
+        /* ── SOBRE ── */
+        #sobre {
+            padding: 100px 8%;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            align-items: start;
+        }
+        .sobre-label {
+            font-family: 'Fraunces', serif;
+            font-size: 13px;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--rose);
+            letter-spacing: 1px;
+            padding-top: 6px;
+        }
+        .sobre-content h2 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(28px, 3vw, 40px);
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+            transition: all 0.3s ease;
+        }
+        .sobre-content p {
+            font-size: 16px;
+            color: var(--ink-soft);
+            line-height: 1.85;
+            font-weight: 300;
+            margin-bottom: 16px;
+            max-width: 560px;
+            transition: all 0.3s ease;
+        }
+        .sobre-content p:hover, .sobre-content h2:hover {
+            transform: scale(1.01);
+        }
+
+        /* ── SKILLS ── */
+        #skills {
+            padding: 100px 8%;
+            background: var(--rose-pale);
+            background-image: radial-gradient(rgba(255,255,255,0.7) 1.5px, transparent 1.5px);
+            background-size: 22px 22px;
+        }
+        .section-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 50px;
+            align-items: end;
+        }
+        .section-header h2 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(28px, 3vw, 42px);
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+        }
+        .section-header p {
+            font-size: 15px;
+            color: var(--ink-soft);
+            font-weight: 300;
+            line-height: 1.7;
+        }
+        .section-eyebrow {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--rose);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 14px;
+        }
+        .tech-item {
+            background: var(--white);
+            border: 1px solid rgba(230,87,143,0.15);
+            border-radius: 16px;
+            padding: 20px 16px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--ink-soft);
+            transition: all 0.3s;
+            cursor: default;
+        }
+        .tech-item span { display: block; font-size: 24px; margin-bottom: 8px; }
+        .tech-item:hover {
+            background: var(--rose-deep);
+            color: var(--white);
+            border-color: var(--rose-deep);
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(194,24,91,0.25);
+        }
+
+        /* ── PROJETOS ── */
+        #projetos {
+            padding: 100px 8%;
+        }
+        #projetos .section-header { margin-bottom: 50px; }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+        .project-card {
+            background: var(--white);
+            border: 1px solid rgba(230,87,143,0.12);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 24px 50px rgba(0,0,0,0.1);
+            border-color: var(--rose-mid);
+        }
+        .project-thumb {
+            height: 180px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 56px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        .project-thumb span {
+            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .project-card:hover .project-thumb span {
+            transform: scale(1.2);
+        }
+        .thumb-yumi { background: linear-gradient(135deg, #fce4ec, #f8bbd0); }
+        .thumb-loja { background: linear-gradient(135deg, #e8f5e9, #c8e6c9); }
+
+        .project-body { padding: 28px; }
+        .project-num {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            color: var(--rose);
+            margin-bottom: 10px;
+            display: block;
+        }
+        .project-body h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            letter-spacing: -0.3px;
+        }
+        .project-body p {
+            font-size: 14px;
+            color: var(--ink-soft);
+            line-height: 1.75;
+            font-weight: 300;
+            margin-bottom: 22px;
+        }
+        .project-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .project-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+        .project-tags span {
+            font-size: 11px;
+            background: var(--rose-pale);
+            color: var(--rose-deep);
+            padding: 4px 12px;
+            border-radius: 99px;
+            font-weight: 500;
+        }
+        .project-link {
+            font-size: 13px;
+            color: var(--rose-deep);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex; align-items: center; gap: 4px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .project-card:hover .project-link { opacity: 1; }
+
+        /* ── CONTATO ── */
+        #contato {
+            padding: 100px 8%;
+            background: var(--ink);
+            position: relative;
+            overflow: hidden;
+        }
+        #contato::before {
+            content: '';
+            position: absolute; inset: 0;
+            background-image: radial-gradient(rgba(230,87,143,0.1) 1.5px, transparent 1.5px);
+            background-size: 28px 28px;
+        }
+        .contato-inner { position: relative; z-index: 1; }
+        #contato .section-eyebrow { color: var(--rose); }
+        #contato h2 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(32px, 4vw, 56px);
+            font-weight: 600;
+            color: var(--white);
+            letter-spacing: -1px;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+        #contato h2 em { color: var(--rose); font-style: italic; }
+        #contato .sub {
+            font-size: 16px;
+            color: rgba(255,255,255,0.5);
+            font-weight: 300;
+            margin-bottom: 50px;
+            max-width: 420px;
+        }
+
+        .contact-links { display: flex; flex-direction: column; gap: 16px; max-width: 560px; }
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 22px 28px;
+            border-radius: 20px;
+            text-decoration: none;
+            color: var(--white);
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: all 0.3s ease;
+        }
+        .contact-link:hover {
+            background: rgba(230,87,143,0.15);
+            border-color: rgba(230,87,143,0.4);
+        }
+        .contact-icon {
+            width: 44px; height: 44px;
+            background: rgba(230,87,143,0.15);
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        .contact-label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 3px; }
+        .contact-value { font-size: 15px; font-weight: 400; }
+        .contact-arrow { margin-left: auto; color: rgba(255,255,255,0.3); font-size: 18px; transition: transform 0.3s, color 0.3s; }
+        .contact-link:hover .contact-arrow { transform: translateX(4px); color: var(--rose); }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--ink);
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding: 24px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        footer p { font-size: 13px; color: rgba(255,255,255,0.3); }
+        footer span { font-size: 13px; color: rgba(255,255,255,0.2); }
+
+        /* ── RESPONSIVO ── */
+        @media (max-width: 900px) {
+            .hero { grid-template-columns: 1fr; text-align: center; padding-top: 100px; padding-bottom: 60px; }
+            .hero-right { margin-top: 50px; }
+            .hero-desc { margin: 0 auto 40px; }
+            .cta-group { justify-content: center; }
+            #sobre { grid-template-columns: 1fr; gap: 20px; }
+            .section-header { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 600px) {
+            header { padding: 20px 5%; }
+            .hero, #sobre, #skills, #projetos, #contato { padding-left: 5%; padding-right: 5%; }
+            .avatar-wrap { width: 260px; height: 260px; }
+            .avatar-inner { font-size: 70px; }
+            .float-tag { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header id="header">
+        <div class="logo">Ana <em>Vitória</em></div>
+        <nav>
             <ul>
                 <li><a href="#inicio">Início</a></li>
                 <li><a href="#sobre">Sobre</a></li>
@@ -7,3 +563,226 @@
                 <li><a href="#contato">Contato</a></li>
             </ul>
         </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+        <div class="hero-bg"></div>
+        <div class="hero-left">
+            <span class="eyebrow">Desenvolvedora Front-End</span>
+            <h1>Código com<br>alma <em>criativa.</em></h1>
+            <p class="hero-desc">Olá! Sou Ana Vitória — estudante apaixonada por transformar ideias em interfaces bonitas e funcionais. Cada projeto é uma oportunidade de aprender e criar algo que importa.</p>
+            <div class="cta-group">
+                <a href="#projetos" class="btn btn-fill">Ver projetos</a>
+                <a href="#contato" class="btn btn-outline">Falar comigo</a>
+            </div>
+        </div>
+        <div class="hero-right">
+            <div class="avatar-wrap">
+                <div class="avatar-circle">
+                    <span class="avatar-inner">AV</span>
+                </div>
+                <div class="float-tag tag-1">✦ React Native</div>
+                <div class="float-tag tag-2">⚡ Front-End Dev</div>
+                <div class="float-tag tag-3">✿ Open to work</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre">
+        <div class="sobre-label">sobre mim</div>
+        <div class="sobre-content">
+            <h2>Uma dev que acredita que<br>design e código andam juntos.</h2>
+            <p>Estou no início da minha jornada como desenvolvedora, mas já sei o que me move: criar experiências digitais que sejam bonitas <em>e</em> funcionais. Acredito que uma interface bem feita faz a diferença real na vida de quem usa.</p>
+            <p>Tenho me dedicado a projetos que conectam tecnologia a causas que importam — como o Yumi, um app focado na saúde feminina. Quando não estou codando, estou estudando design, UX e as últimas novidades do ecossistema React.</p>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+        <div class="section-header">
+            <div>
+                <span class="section-eyebrow">Stack</span>
+                <h2>Tecnologias que uso</h2>
+            </div>
+            <p>Focada no ecossistema JavaScript moderno, com atenção especial a interfaces acessíveis e responsivas.</p>
+        </div>
+        <div class="tech-grid">
+            <div class="tech-item"><span>⚡</span>JavaScript</div>
+            <div class="tech-item"><span>🔷</span>TypeScript</div>
+            <div class="tech-item"><span>⚛️</span>React</div>
+            <div class="tech-item"><span>📱</span>React Native</div>
+            <div class="tech-item"><span>▲</span>Next.js</div>
+            <div class="tech-item"><span>🟢</span>Node.js</div>
+            <div class="tech-item"><span>🐘</span>PostgreSQL</div>
+            <div class="tech-item"><span>🐳</span>Docker</div>
+            <div class="tech-item"><span>🎨</span>Tailwind CSS</div>
+            <div class="tech-item"><span>🐙</span>Git</div>
+        </div>
+    </section>
+
+    <!-- PROJETOS -->
+    <section id="projetos">
+        <div class="section-header">
+            <div>
+                <span class="section-eyebrow">Trabalhos</span>
+                <h2>Projetos selecionados</h2>
+            </div>
+            <p>Cada projeto é uma história — aqui estão as que tenho mais orgulho de contar até agora.</p>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-thumb thumb-yumi"><span>🌸</span></div>
+                <div class="project-body">
+                    <span class="project-num">01 — 2026 · em andamento</span>
+                    <h3>Yumi</h3>
+                    <p>App mobile para fortalecer a conexão das mulheres com a própria saúde. Integra acompanhamento do ciclo menstrual, registro de sintomas e conteúdos educativos — incentivando o autocuidado e decisões informadas sobre o corpo.</p>
+                    <div class="project-footer">
+                        <div class="project-tags">
+                            <span>React Native</span>
+                            <span>Supabase</span>
+                        </div>
+                        <a href="https://github.com/vmelox" target="_blank" class="project-link">GitHub →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-thumb thumb-loja"><span>🛍</span></div>
+                <div class="project-body">
+                    <span class="project-num">02 — 2025</span>
+                    <h3>Loja de Eletrônicos</h3>
+                    <p>E-commerce desenvolvido em equipe para venda e compra de eletrônicos. Fui responsável pelo Front-End completo — da estrutura ao estilo — garantindo uma experiência de navegação fluida e visual limpo.</p>
+                    <div class="project-footer">
+                        <div class="project-tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                        </div>
+                        <a href="https://github.com/vmelox" target="_blank" class="project-link">GitHub →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato">
+        <div class="contato-inner">
+            <span class="section-eyebrow">Vamos conversar</span>
+            <h2>Pronta para o<br>próximo <em>desafio.</em></h2>
+            <p class="sub">Seja uma oportunidade de estágio, freela, ou só um papo sobre tecnologia — minha caixa de entrada está aberta.</p>
+            <div class="contact-links">
+                <a href="mailto:anavitoriamelodev@gmail.com" class="contact-link">
+                    <div class="contact-icon">✉</div>
+                    <div>
+                        <div class="contact-label">E-mail</div>
+                        <div class="contact-value">anavitoriamelodev@gmail.com</div>
+                    </div>
+                    <span class="contact-arrow">→</span>
+                </a>
+                <a href="https://github.com/vmelox" target="_blank" class="contact-link">
+                    <div class="contact-icon">⌨</div>
+                    <div>
+                        <div class="contact-label">GitHub</div>
+                        <div class="contact-value">github.com/vmelox</div>
+                    </div>
+                    <span class="contact-arrow">→</span>
+                </a>
+                <a href="https://www.linkedin.com/in/anavi-melo/" target="_blank" class="contact-link">
+                    <div class="contact-icon">in</div>
+                    <div>
+                        <div class="contact-label">LinkedIn</div>
+                        <div class="contact-value">linkedin.com/in/anavi-melo</div>
+                    </div>
+                    <span class="contact-arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Ana Vitória Melo</p>
+        <span>feito com ♡ e muito café</span>
+    </footer>
+
+    <script>
+        const cursor = document.getElementById('cursor');
+        const ring = document.getElementById('ring');
+        document.addEventListener('mousemove', e => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            setTimeout(() => {
+                ring.style.left = e.clientX + 'px';
+                ring.style.top = e.clientY + 'px';
+            }, 80);
+        });
+        document.querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.style.transform = 'translate(-50%,-50%) scale(2.5)';
+                ring.style.width = '50px'; ring.style.height = '50px';
+                ring.style.opacity = '0.3';
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.style.transform = 'translate(-50%,-50%) scale(1)';
+                ring.style.width = '34px'; ring.style.height = '34px';
+                ring.style.opacity = '0.5';
+            });
+        });
+
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 20);
+        });
+
+        const links = document.querySelectorAll('nav a');
+        const sections = document.querySelectorAll('section[id]');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    links.forEach(l => l.classList.remove('active'));
+                    const active = document.querySelector(`nav a[href="#${entry.target.id}"]`);
+                    if (active) active.classList.add('active');
+                }
+            });
+        }, { threshold: 0.4 });
+        sections.forEach(s => observer.observe(s));
+
+        const revealEls = document.querySelectorAll('.tech-item, .project-card, .contact-link, .sobre-content');
+        const revealObs = new IntersectionObserver(entries => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const tag = el.classList.contains('tech-item') ? 'tech' :
+                                el.classList.contains('project-card') ? 'project' :
+                                el.classList.contains('contact-link') ? 'contact' : 'other';
+                    const delay = tag === 'tech' ? i * 60 : tag === 'project' ? i * 150 : i * 60;
+                    setTimeout(() => {
+                        el.style.opacity = '1';
+                        el.style.transform = 'translateY(0) scale(1)';
+                        if (tag === 'project') {
+                            const thumbSpan = el.querySelector('.project-thumb span');
+                            if (thumbSpan) {
+                                setTimeout(() => { thumbSpan.style.transform = 'scale(1)'; }, 200);
+                                thumbSpan.style.transform = 'scale(0)';
+                            }
+                        }
+                    }, delay);
+                    revealObs.unobserve(el);
+                }
+            });
+        }, { threshold: 0.1 });
+        revealEls.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px) scale(1)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            if (el.classList.contains('project-card')) {
+                const thumbSpan = el.querySelector('.project-thumb span');
+                if (thumbSpan) thumbSpan.style.transform = 'scale(0)';
+            }
+            revealObs.observe(el);
+        });
+    </script>
+</body>
+</html>
