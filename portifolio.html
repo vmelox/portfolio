@@ -46,13 +46,16 @@
             justify-content: space-between;
             align-items: center;
             padding: 28px 8%;
-            position: sticky;
-            top: 0; z-index: 100;
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
             background: transparent;
             border-bottom: 1px solid transparent;
-            transition: border-color 0.3s;
+            transition: transform 0.3s ease, border-color 0.3s;
         }
-        header.scrolled { border-color: rgba(230,87,143,0.15); }
+        header.hidden {
+            transform: translateY(-100%);
+        }
 
         .logo {
             font-family: 'Fraunces', serif;
@@ -760,10 +763,17 @@
             });
         });
 
-        // header scroll
-        const header = document.getElementById('header');
+        // header scroll hide
+        let lastScroll = 0;
+        const headerEl = document.getElementById('header');
         window.addEventListener('scroll', () => {
-            header.classList.toggle('scrolled', window.scrollY > 20);
+            const currentScroll = window.scrollY;
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                headerEl.classList.add('hidden');
+            } else {
+                headerEl.classList.remove('hidden');
+            }
+            lastScroll = currentScroll;
         });
 
         // nav active
