@@ -287,11 +287,6 @@
             grid-template-columns: 1fr 2fr;
             gap: 60px;
             align-items: start;
-            transition: all 0.4s ease;
-        }
-        #sobre:hover {
-            transform: scale(1.01);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.06);
         }
         .sobre-label {
             font-family: 'Fraunces', serif;
@@ -309,6 +304,7 @@
             line-height: 1.2;
             margin-bottom: 20px;
             letter-spacing: -0.5px;
+            transition: all 0.3s ease;
         }
         .sobre-content p {
             font-size: 16px;
@@ -317,6 +313,10 @@
             font-weight: 300;
             margin-bottom: 16px;
             max-width: 560px;
+            transition: all 0.3s ease;
+        }
+        .sobre-content p:hover, .sobre-content h2:hover {
+            transform: scale(1.01);
         }
         .status-pill {
             display: inline-flex;
@@ -348,11 +348,6 @@
             background: var(--rose-pale);
             background-image: radial-gradient(rgba(255,255,255,0.7) 1.5px, transparent 1.5px);
             background-size: 22px 22px;
-            transition: all 0.4s ease;
-        }
-        #skills:hover {
-            transform: scale(1.01);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.06);
         }
         .section-header {
             display: grid;
@@ -403,21 +398,16 @@
         }
         .tech-item span { display: block; font-size: 24px; margin-bottom: 8px; }
         .tech-item:hover {
+            transform: scale(1.08);
             background: var(--rose-deep);
             color: var(--white);
             border-color: var(--rose-deep);
-            transform: translateY(-6px);
             box-shadow: 0 12px 30px rgba(194,24,91,0.25);
         }
 
         /* ── PROJETOS ── */
         #projetos {
             padding: 100px 8%;
-            transition: all 0.4s ease;
-        }
-        #projetos:hover {
-            transform: scale(1.01);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.06);
         }
         #projetos .section-header { margin-bottom: 50px; }
 
@@ -434,7 +424,7 @@
             transition: all 0.4s ease;
         }
         .project-card:hover {
-            transform: translateY(-8px);
+            transform: scale(1.03);
             box-shadow: 0 24px 50px rgba(0,0,0,0.08);
             border-color: var(--rose-mid);
         }
@@ -502,11 +492,6 @@
             background: var(--ink);
             position: relative;
             overflow: hidden;
-            transition: all 0.4s ease;
-        }
-        #contato:hover {
-            transform: scale(1.01);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
         }
         #contato::before {
             content: '';
@@ -548,9 +533,9 @@
             transition: all 0.3s ease;
         }
         .contact-link:hover {
+            transform: scale(1.02);
             background: rgba(230,87,143,0.15);
             border-color: rgba(230,87,143,0.4);
-            transform: translateX(8px);
         }
         .contact-icon {
             width: 44px; height: 44px;
