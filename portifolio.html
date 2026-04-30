@@ -401,6 +401,7 @@
             background: var(--rose-deep);
             color: var(--white);
             border-color: var(--rose-deep);
+            transform: translateY(-10px);
             box-shadow: 0 12px 30px rgba(194,24,91,0.25);
         }
 
@@ -423,7 +424,8 @@
             transition: all 0.4s ease;
         }
         .project-card:hover {
-            box-shadow: 0 24px 50px rgba(0,0,0,0.08);
+            transform: translateY(-12px);
+            box-shadow: 0 24px 50px rgba(0,0,0,0.1);
             border-color: var(--rose-mid);
         }
         .project-thumb {
@@ -432,6 +434,13 @@
             font-size: 56px;
             position: relative;
             overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        .project-thumb span {
+            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .project-card:hover .project-thumb span {
+            transform: scale(1.2);
         }
         .thumb-yumi { background: linear-gradient(135deg, #fce4ec, #f8bbd0); }
         .thumb-loja { background: linear-gradient(135deg, #e8f5e9, #c8e6c9); }
@@ -665,7 +674,7 @@
         </div>
         <div class="projects-grid">
             <div class="project-card">
-                <div class="project-thumb thumb-yumi">🌸</div>
+                <div class="project-thumb thumb-yumi"><span>🌸</span></div>
                 <div class="project-body">
                     <span class="project-num">01 — 2026 · em andamento</span>
                     <h3>Yumi</h3>
@@ -680,7 +689,7 @@
                 </div>
             </div>
             <div class="project-card">
-                <div class="project-thumb thumb-loja">🛍</div>
+                <div class="project-thumb thumb-loja"><span>🛍</span></div>
                 <div class="project-body">
                     <span class="project-num">02 — 2025</span>
                     <h3>Loja de Eletrônicos</h3>
@@ -774,16 +783,28 @@
         }, { threshold: 0.4 });
         sections.forEach(s => observer.observe(s));
 
-// animate on scroll
+// animate on scroll - skills cascade with 60ms delay
         const revealEls = document.querySelectorAll('.tech-item, .project-card, .contact-link, .sobre-content');
         const revealObs = new IntersectionObserver(entries => {
             entries.forEach((entry, i) => {
                 if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const tag = el.classList.contains('tech-item') ? 'tech' :
+                                el.classList.contains('project-card') ? 'project' :
+                                el.classList.contains('contact-link') ? 'contact' : 'other';
+                    const delay = tag === 'tech' ? i * 60 : tag === 'project' ? i * 150 : i * 60;
                     setTimeout(() => {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0) scale(1)';
-                    }, i * 60);
-                    revealObs.unobserve(entry.target);
+                        el.style.opacity = '1';
+                        el.style.transform = 'translateY(0) scale(1)';
+                        if (tag === 'project') {
+                            const thumbSpan = el.querySelector('.project-thumb span');
+                            if (thumbSpan) {
+                                setTimeout(() => { thumbSpan.style.transform = 'scale(1)'; }, 200);
+                                thumbSpan.style.transform = 'scale(0)';
+                            }
+                        }
+                    }, delay);
+                    revealObs.unobserve(el);
                 }
             });
         }, { threshold: 0.1 });
@@ -791,6 +812,10 @@
             el.style.opacity = '0';
             el.style.transform = 'translateY(20px) scale(1)';
             el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            if (el.classList.contains('project-card')) {
+                const thumbSpan = el.querySelector('.project-thumb span');
+                if (thumbSpan) thumbSpan.style.transform = 'scale(0)';
+            }
             revealObs.observe(el);
         });
         }, { threshold: 0.1 });
