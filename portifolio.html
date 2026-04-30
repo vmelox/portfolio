@@ -31,7 +31,7 @@
         body { cursor: none; }
         .cursor {
             width: 10px; height: 10px;
-            background: var(--rose);
+            background: var(--rose-deep);
             border-radius: 50%;
             position: fixed; top: 0; left: 0;
             pointer-events: none; z-index: 9999;
@@ -40,7 +40,7 @@
         }
         .cursor-ring {
             width: 34px; height: 34px;
-            border: 1.5px solid var(--rose);
+            border: 1.5px solid var(--rose-deep);
             border-radius: 50%;
             position: fixed; top: 0; left: 0;
             pointer-events: none; z-index: 9998;
@@ -140,13 +140,13 @@
             font-weight: 500;
             letter-spacing: 2px;
             text-transform: uppercase;
-            color: var(--rose);
+            color: var(--rose-deep);
             margin-bottom: 24px;
         }
         .eyebrow::before {
             content: '';
             display: block; width: 24px; height: 1.5px;
-            background: var(--rose);
+            background: var(--rose-deep);
         }
 
         h1 {
@@ -186,20 +186,24 @@
         .btn-fill {
             background: var(--rose-deep);
             color: var(--white);
+            border: 1.5px solid var(--rose-deep);
         }
         .btn-fill:hover {
             background: var(--rose);
+            border-color: var(--rose);
             transform: translateY(-2px);
             box-shadow: 0 8px 24px rgba(194,24,91,0.3);
         }
         .btn-outline {
-            border: 1.5px solid var(--rose-mid);
-            color: var(--ink);
+            background: var(--rose-deep);
+            color: var(--white);
+            border: 1.5px solid var(--rose-deep);
         }
         .btn-outline:hover {
+            background: var(--rose);
             border-color: var(--rose);
-            background: rgba(230,87,143,0.05);
             transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(194,24,91,0.3);
         }
 
         /* avatar ilustrativo */
