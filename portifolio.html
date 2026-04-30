@@ -287,6 +287,11 @@
             grid-template-columns: 1fr 2fr;
             gap: 60px;
             align-items: start;
+            transition: all 0.4s ease;
+        }
+        #sobre:hover {
+            transform: scale(1.01);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.06);
         }
         .sobre-label {
             font-family: 'Fraunces', serif;
@@ -343,6 +348,11 @@
             background: var(--rose-pale);
             background-image: radial-gradient(rgba(255,255,255,0.7) 1.5px, transparent 1.5px);
             background-size: 22px 22px;
+            transition: all 0.4s ease;
+        }
+        #skills:hover {
+            transform: scale(1.01);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.06);
         }
         .section-header {
             display: grid;
@@ -401,7 +411,14 @@
         }
 
         /* ── PROJETOS ── */
-        #projetos { padding: 100px 8%; }
+        #projetos {
+            padding: 100px 8%;
+            transition: all 0.4s ease;
+        }
+        #projetos:hover {
+            transform: scale(1.01);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.06);
+        }
         #projetos .section-header { margin-bottom: 50px; }
 
         .projects-grid {
@@ -485,6 +502,11 @@
             background: var(--ink);
             position: relative;
             overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        #contato:hover {
+            transform: scale(1.01);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
         }
         #contato::before {
             content: '';
