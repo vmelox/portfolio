@@ -227,9 +227,12 @@
             background: url('C:/Users/Anavi/.claude/projects/cyber.png');
             background-size: cover;
             background-position: center;
-            display: flex; align-items: center; justify-content: center;
-            animation: morphBlob 8s ease-in-out infinite alternate;
+            animation: morphBlob 8s ease-in-out infinite alternate, rotateAvatar 12s linear infinite;
             position: relative; overflow: hidden;
+        }
+        @keyframes rotateAvatar {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
         @keyframes morphBlob {
             0% { border-radius: 60% 40% 55% 45% / 50% 55% 45% 50%; }
