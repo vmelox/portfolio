@@ -9,14 +9,14 @@ export function About() {
           Código com propósito e segurança.
         </h2>
         <p className="mb-4 text-base font-light leading-8 text-[#4a3f47]">
-          Estou no início da minha jornada como desenvolvedora, com foco em cibersegurança e
-          interesse em criar aplicações seguras, funcionais e bem estruturadas. Acredito que
-          desenvolver vai além de fazer funcionar: envolve também proteger e garantir a
-          confiabilidade dos sistemas.
+          Olá! Sou Ana Vitória, estudante de Engenharia de Software com foco em cibersegurança e
+          interesse em desenvolvimento de software, incluindo web, back-end, front-end e mobile,
+          buscando construir aplicações seguras, funcionais e bem estruturadas.
         </p>
         <p className="text-base font-light leading-8 text-[#4a3f47]">
-          Tenho me dedicado a projetos que fortalecem minha base técnica e ampliam minha visão na
-          área, sempre em constante evolução.
+          Acredito que desenvolver vai além de fazer funcionar: envolve também proteger e garantir
+          a confiabilidade dos sistemas. Tenho me dedicado a projetos que fortalecem minha base
+          técnica e ampliam minha visão na área, sempre em constante evolução.
         </p>
       </div>
     </section>
