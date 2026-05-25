@@ -26,15 +26,7 @@ export function Hero() {
             </span>
           </span>
         </h1>
-        <p
-          data-hero-item
-          className="mx-auto mb-10 max-w-[460px] text-[17px] font-light leading-8 text-[#4a3f47] md:mx-0"
-        >
-          Olá! Sou Ana Vitória, estudante de Engenharia de Software com foco em cibersegurança e
-          interesse em desenvolvimento de software, incluindo web, back-end, front-end e mobile,
-          buscando construir aplicações seguras e bem estruturadas.
-        </p>
-        <div data-hero-item className="flex flex-wrap justify-center gap-3 md:justify-start">
+        <div data-hero-item className="mt-10 flex flex-wrap justify-center gap-3 md:justify-start">
           <a className="portfolio-button" href="#projetos">
             Ver projetos
           </a>
