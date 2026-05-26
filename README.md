@@ -1,12 +1,12 @@
 # Portfólio
 
-Decidi criar este portfólio para desenvolver melhor minha criatividade e minhas habilidades em front-end. Ele foi construído de acordo com a minha identidade visual e acabou se tornando o melhor projeto pessoal que já criei até agora.
+Este portfólio foi criado como um projeto pessoal para aprimorar minha criatividade, minha identidade visual e minhas habilidades em desenvolvimento front-end. A proposta foi construir uma experiência simples, organizada e visualmente alinhada com quem eu sou, mostrando meus projetos, minha evolução e meus principais interesses na área de tecnologia.
 
-A ideia foi criar algo simples, mas que conseguisse mostrar quem eu sou, do que eu gosto e como venho evoluindo como desenvolvedora. Incluí os projetos dos quais mais me orgulho, principalmente por serem projetos mais recentes e por representarem meu processo de aprendizado constante.
+Mais do que uma página de apresentação, este projeto representa uma etapa importante da minha jornada como desenvolvedora. Nele, reuni projetos recentes dos quais me orgulho, explorando design de interface, responsividade, organização de componentes e boas práticas no desenvolvimento web.
 
 ## Objetivo
 
-Criar uma apresentação simples dos meus projetos, contar um pouco mais sobre mim e demonstrar minhas habilidades em desenvolvimento web, com foco em front-end, UX/UI e construção de interfaces bem estruturadas.
+O objetivo deste portfólio é apresentar meus projetos, contar um pouco sobre minha trajetória e demonstrar minhas habilidades em desenvolvimento web, com foco em front-end, UX/UI e construção de interfaces modernas, acessíveis e bem estruturadas.
 
 ## Tecnologias usadas
     Next.js
