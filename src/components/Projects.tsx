@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { projects } from "@/data/portfolio";
 import { SectionHeader } from "./SectionHeader";
 import { motion } from "motion/react";
@@ -22,17 +23,29 @@ export function Projects() {
             transition={{ type: "spring", stiffness: 260, damping: 24 }}
             className="group overflow-hidden rounded-3xl border border-rose-200/60 bg-white transition-colors duration-500 hover:border-rose-300 hover:shadow-[0_24px_50px_rgba(0,0,0,0.10)]"
           >
-            <div
-              className={`flex h-44 items-center justify-center ${
-                project.tone === "rose"
-                  ? "bg-[linear-gradient(135deg,#fce4ec,#f8bbd0)]"
-                  : "bg-[linear-gradient(135deg,#e8f5e9,#c8e6c9)]"
-              }`}
-            >
-              <span className="font-serif text-5xl font-semibold italic text-[#c2185b] transition duration-500 group-hover:scale-110">
-                {project.mark}
-              </span>
-            </div>
+            {project.title === "Loja de Eletrônicos" ? (
+              <div className="relative h-56 overflow-hidden bg-[#edf5ee]">
+                <Image
+                  src="/banner-loja-eletronicos.svg"
+                  alt="Banner do projeto Loja de Eletrônicos"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover object-top transition duration-500 group-hover:scale-[1.03]"
+                />
+              </div>
+            ) : (
+              <div
+                className={`flex h-44 items-center justify-center ${
+                  project.tone === "rose"
+                    ? "bg-[linear-gradient(135deg,#fce4ec,#f8bbd0)]"
+                    : "bg-[linear-gradient(135deg,#e8f5e9,#c8e6c9)]"
+                }`}
+              >
+                <span className="font-serif text-5xl font-semibold italic text-[#c2185b] transition duration-500 group-hover:scale-110">
+                  {project.mark}
+                </span>
+              </div>
+            )}
             <div className="p-7">
               <span className="mb-2 block text-[11px] font-medium uppercase tracking-[0.16em] text-[#e6578f]">
                 {project.number}

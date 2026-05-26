@@ -1,0 +1,44 @@
+<svg width="900" height="560" viewBox="0 0 900 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="560" fill="#edf5ee"/>
+  <circle cx="655" cy="52" r="170" fill="#dcecdf"/>
+  <circle cx="145" cy="452" r="160" fill="#e4f1e6"/>
+  <path d="M0 64H900" stroke="#dfe8e1"/>
+  <rect x="49" y="8" width="42" height="42" rx="12" fill="#2e7d32"/>
+  <path d="M59 29H66L69 21L75 38L80 16L84 29H92" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="104" y="35" fill="#172a1a" font-family="Arial, sans-serif" font-size="17" font-weight="700">Loja de Eletrônicos</text>
+  <rect x="312" y="11" width="70" height="34" rx="8" fill="#dcefe0"/>
+  <text x="330" y="33" fill="#276d2d" font-family="Arial, sans-serif" font-size="14" font-weight="700">Início</text>
+  <text x="405" y="33" fill="#48644d" font-family="Arial, sans-serif" font-size="14">Produtos</text>
+  <text x="506" y="33" fill="#48644d" font-family="Arial, sans-serif" font-size="14">Carrinho</text>
+  <rect x="661" y="7" width="158" height="42" rx="9" fill="#2e7d32"/>
+  <text x="690" y="33" fill="white" font-family="Arial, sans-serif" font-size="15" font-weight="700">Comprar agora</text>
+  <circle cx="853" cy="28" r="21" fill="#bfdfc5"/>
+  <text x="846" y="35" fill="#276d2d" font-family="Arial, sans-serif" font-size="15" font-weight="700">V</text>
+  <rect x="310" y="113" width="282" height="32" rx="16" fill="white" stroke="#c9dfce"/>
+  <circle cx="337" cy="129" r="5" fill="#69b36f"/>
+  <text x="353" y="134" fill="#276d2d" font-family="Arial, sans-serif" font-size="14" font-weight="700">E-commerce com experiência ágil</text>
+  <text x="253" y="240" fill="#102b17" font-family="Georgia, serif" font-size="57" font-weight="700">Eletrônicos com</text>
+  <text x="253" y="302" fill="#276d2d" font-family="Georgia, serif" font-size="57" font-style="italic">compra</text>
+  <text x="466" y="302" fill="#102b17" font-family="Georgia, serif" font-size="57" font-weight="700">rápida</text>
+  <text x="166" y="358" fill="#47644d" font-family="Arial, sans-serif" font-size="20" text-anchor="middle">
+    <tspan x="450" dy="0">Compare produtos, navegue por categorias e finalize pedidos</tspan>
+    <tspan x="450" dy="31">em uma interface responsiva, limpa e objetiva.</tspan>
+  </text>
+  <rect x="192" y="421" width="306" height="63" rx="13" fill="#2e7d32"/>
+  <text x="232" y="459" fill="white" font-family="Arial, sans-serif" font-size="19" font-weight="700">Ver produtos agora</text>
+  <path d="M438 452H459M459 452L451 444M459 452L451 460" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="516" y="421" width="196" height="63" rx="13" fill="white" stroke="#d3ddd5"/>
+  <text x="562" y="459" fill="#102b17" font-family="Arial, sans-serif" font-size="19" font-weight="700">Como funciona</text>
+  <rect x="40" y="514" width="190" height="95" rx="15" fill="white" opacity=".9"/>
+  <rect x="266" y="514" width="190" height="95" rx="15" fill="white" opacity=".9"/>
+  <rect x="492" y="514" width="190" height="95" rx="15" fill="white" opacity=".9"/>
+  <rect x="718" y="514" width="142" height="95" rx="15" fill="white" opacity=".9"/>
+  <text x="135" y="566" text-anchor="middle" fill="#276d2d" font-family="Georgia, serif" font-size="32" font-weight="700">100%</text>
+  <text x="135" y="596" text-anchor="middle" fill="#48644d" font-family="Arial, sans-serif" font-size="14">responsivo</text>
+  <text x="361" y="566" text-anchor="middle" fill="#276d2d" font-family="Georgia, serif" font-size="32" font-weight="700">JS</text>
+  <text x="361" y="596" text-anchor="middle" fill="#48644d" font-family="Arial, sans-serif" font-size="14">interativo</text>
+  <text x="587" y="566" text-anchor="middle" fill="#276d2d" font-family="Georgia, serif" font-size="32" font-weight="700">UI</text>
+  <text x="587" y="596" text-anchor="middle" fill="#48644d" font-family="Arial, sans-serif" font-size="14">limpa</text>
+  <text x="789" y="566" text-anchor="middle" fill="#276d2d" font-family="Georgia, serif" font-size="32" font-weight="700">24h</text>
+  <text x="789" y="596" text-anchor="middle" fill="#48644d" font-family="Arial, sans-serif" font-size="14">online</text>
+</svg>
