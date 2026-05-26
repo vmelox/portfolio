@@ -1,12 +1,14 @@
-## Decidi criar esse portfolio para melhorar na criatividade e front, fiz de acordo com minha identidade e se tornou o melhor que já criei.
+# Portfólio
 
-A ideia foi criar algo simples, mas que desse pra entender quem de fato eu sou e do que eu gosto. Incluí os projetos que mais me orgulho de ter feito, ainda mais por serem projetos mais novos, porque estou aprendendo cada vez mais. 
+Decidi criar este portfólio para desenvolver melhor minha criatividade e minhas habilidades em front-end. Ele foi construído de acordo com a minha identidade visual e acabou se tornando o melhor projeto pessoal que já criei até agora.
 
-Objetivo
-Criar uma apresentação simples dos meus projetos, contar mais sobre mim e mostrar habilidades em desenvolvimento web, mostrando o front com um UX/UI acertivo.
+A ideia foi criar algo simples, mas que conseguisse mostrar quem eu sou, do que eu gosto e como venho evoluindo como desenvolvedora. Incluí os projetos dos quais mais me orgulho, principalmente por serem projetos mais recentes e por representarem meu processo de aprendizado constante.
 
-Tecnologias usadas
+## Objetivo
 
+Criar uma apresentação simples dos meus projetos, contar um pouco mais sobre mim e demonstrar minhas habilidades em desenvolvimento web, com foco em front-end, UX/UI e construção de interfaces bem estruturadas.
+
+## Tecnologias usadas
     Next.js
     React
     TypeScript
