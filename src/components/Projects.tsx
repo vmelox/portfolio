@@ -23,11 +23,21 @@ export function Projects() {
             transition={{ type: "spring", stiffness: 260, damping: 24 }}
             className="group overflow-hidden rounded-3xl border border-rose-200/60 bg-white transition-colors duration-500 hover:border-rose-300 hover:shadow-[0_24px_50px_rgba(0,0,0,0.10)]"
           >
-            {project.title === "Loja de Eletrônicos" ? (
+            {project.title === "Yumi" ? (
+              <div className="relative h-56 overflow-hidden bg-[#160f36]">
+                <Image
+                  src="/yumi.png.jpeg"
+                  alt="Banner do projeto Yumi"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover object-center transition duration-500 group-hover:scale-[1.03]"
+                />
+              </div>
+            ) : project.title === "Assistente Médico com IA" ? (
               <div className="relative h-56 overflow-hidden bg-[#edf5ee]">
                 <Image
-                  src="/banner-loja-eletronicos.svg"
-                  alt="Banner do projeto Loja de Eletrônicos"
+                  src="/png.1.png"
+                  alt="Banner do projeto Assistente Médico IA"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover object-top transition duration-500 group-hover:scale-[1.03]"

@@ -41,13 +41,13 @@ export const projects = [
   },
   {
     number: "02 - 2025",
-    title: "Loja de Eletrônicos",
+    title: "Assistente Médico com IA",
     description:
-      "E-commerce desenvolvido em equipe para venda e compra de eletrônicos. Fui responsável pelo Front-End completo, da estrutura ao estilo, garantindo uma experiência de navegação fluida e visual limpo.",
-    tags: ["HTML", "CSS", "JavaScript"],
+      "Projeto pessoal desenvolvido de ponta a ponta, unindo design front-end, back-end e integração com API de inteligência artificial. A aplicação permite descrever sintomas em linguagem natural e receber uma triagem inicial orientativa, com classificação de urgência, sugestão de especialidade médica e geração de relatório clínico.",
+    tags: ["Next.js", "API", "IA", "Back-End"],
     href: "https://github.com/vmelox",
     tone: "mint",
-    mark: "LE",
+    mark: "IA",
   },
 ];
 
