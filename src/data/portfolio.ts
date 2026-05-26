@@ -40,11 +40,11 @@ export const projects = [
     mark: "YU",
   },
   {
-    number: "02 - 2025",
+    number: "01 - 2026",
     title: "Assistente Médico com IA",
     description:
       "Projeto pessoal desenvolvido de ponta a ponta, unindo design front-end, back-end e integração com API de inteligência artificial. A aplicação permite descrever sintomas em linguagem natural e receber uma triagem inicial orientativa, com classificação de urgência, sugestão de especialidade médica e geração de relatório clínico.",
-    tags: ["Next.js", "API", "IA", "Back-End"],
+    tags: ["Next.js", "Python", "Clerk", "Railway", "Supabase", "Tailwind CSS"],
     href: "https://github.com/vmelox",
     tone: "mint",
     mark: "IA",
