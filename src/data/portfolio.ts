@@ -35,7 +35,7 @@ export const projects = [
     description:
       "App mobile para fortalecer a conexão das mulheres com a própria saúde. Integra acompanhamento do ciclo menstrual, registro de sintomas e conteúdos educativos, incentivando o autocuidado e decisões informadas sobre o corpo.",
     tags: ["React Native", "Supabase"],
-    href: "https://triagem-medica-zeta.vercel.app/",
+    href: "https://github.com/vmelox",
     tone: "rose",
     mark: "YU",
   },
@@ -45,7 +45,7 @@ export const projects = [
     description:
       "Projeto pessoal desenvolvido de ponta a ponta, unindo design front-end, back-end e integração com API de inteligência artificial. A aplicação permite descrever sintomas em linguagem natural e receber uma triagem inicial orientativa, com classificação de urgência, sugestão de especialidade médica e geração de relatório clínico.",
     tags: ["Next.js", "Python", "Clerk", "Railway", "Supabase", "Tailwind CSS"],
-    href: "https://github.com/vmelox",
+    href: "https://triagem-medica-zeta.vercel.app/",
     tone: "mint",
     mark: "IA",
   },
