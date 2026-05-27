@@ -83,7 +83,9 @@ export function Projects() {
                   rel="noreferrer"
                   className="text-sm font-medium text-[#c2185b] opacity-80 transition hover:translate-x-1 hover:opacity-100"
                 >
-                  GitHub -&gt;
+                  {project.title === "Assistente Médico com IA"
+                    ? "Triagem ->"
+                    : "GitHub ->"}
                 </a>
               </div>
             </div>
